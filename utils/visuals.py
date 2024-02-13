@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
 import pandas as pd
+import os 
 
 
 def save_histogram(data, column):
@@ -22,13 +23,29 @@ def save_histograms(data):
     pass
 
 
-def save_correlation(data, var1, var2, corr_value):
-    # check if output/scatterplots exist
-    # create new fig
-    # create scatterplot
-    # save figure
-    # close figure
-    pass
+def save_correlation(data, var1, var2):
+        # Verificar si la carpeta "output" existe, si no, crearla
+        if not os.path.exists("output"):
+            os.makedirs("output")
+
+        # Calcular la correlación entre las dos variables
+        correlation_value = data[var1].corr(data[var2])
+
+        # Crear el gráfico de correlación
+        sns.scatterplot(data=data, x=var1, y=var2)
+
+        # Añadir el valor de correlación como parte del título
+        plt.title(f"Correlación entre {var1} y {var2}: {correlation_value}")
+        plt.xlabel(var1)
+        plt.ylabel(var2)
+
+        # Guardar el gráfico como imagen PNG
+        plt.savefig(f"output/scatterplots/{var1}_{var2}_correlation_plot.png")
+
+        # Limpiar la figura
+        plt.clf()
+        plt.close()
+        pass
 
 
 def save_correlations(data, correlations):
