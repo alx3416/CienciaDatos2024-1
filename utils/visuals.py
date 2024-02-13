@@ -20,3 +20,21 @@ def save_histograms(data):
     # Deben guardarse los histogramas de todas las variables en imágenes separadas
     # Cada imagen se debe nombrar acorde a la variable utilizada
     pass
+
+
+def save_correlation(data, var1, var2, corr_value):
+    # check if output/scatterplots exist
+    # create new fig
+    # create scatterplot
+    # save figure
+    # close figure
+    pass
+
+
+def save_correlations(data, correlations):
+    # create each scatter plot for var1 and var2
+    # save each plot
+    pass
+
+def save_all_correlations(data, correlations):
+    pass
