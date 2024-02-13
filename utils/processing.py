@@ -12,15 +12,27 @@ def check_output_folder(path):
 
 
 def save_correlations(data):
-    # check if output folder exist
-    # save correlation data in csv
+    # Verificar si la carpeta "output" existe, si no, crearla
+    check_output_folder("output")
+
+    # Calcular las correlaciones
+    correlations = data.corr()
+
+    # Guardar las correlaciones en un archivo CSV
+    correlations.to_csv("output/correlations.csv")
+    print("Correlation data saved as 'output/correlations.csv'")
     pass
 
 
 def get_correlations(data):
-    # obtain correlation data from dataframe
-    # call save function
-    # return correlations dataframe
+    # Calcular las correlaciones
+    correlations = data.corr()
+
+    # Guardar las correlaciones en un archivo CSV
+    save_correlations(data)
+
+    # Devolver el dataframe de correlaciones
+    return correlations
     pass
 
 
