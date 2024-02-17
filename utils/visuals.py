@@ -9,7 +9,7 @@ import pandas as pd
 
 def save_histogram(data, column):
     proc.check_output_folder("output/histograms")
-    sns_plot = sns.histplot(data=data[column])
+    sns_plot = sns.histplot(data=data[column], kde=True)
     fig = sns_plot.get_figure()
     fig.savefig("output/histograms/histogram_"+column+".png")
     plt.close()
