@@ -18,10 +18,7 @@ def save_histogram(data, column):
 def save_histograms(data):
     proc.check_output_folder("output/histograms")
     for column in data.columns:
-        sns_plot = sns.histplot(data=data[column])
-        fig = sns_plot.get_figure()
-        fig.savefig("output/histograms/histogram_"+column+".png")
-        plt.close()
+        save_histogram(data, column)
 
 
 def save_correlation(data, var1, var2, corr_value):
