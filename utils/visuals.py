@@ -44,7 +44,6 @@ def save_correlation(data, var1, var2):
     # Limpiar la figura
     plt.clf()
     plt.close()
-    pass
 
 
 def save_correlations(data, correlations):

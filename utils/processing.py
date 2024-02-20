@@ -12,16 +12,11 @@ def check_output_folder(path):
 
 
 def save_correlations(data):
-    # Verificar si la carpeta "output" existe, si no, crearla
     check_output_folder("output")
-
-    # Calcular las correlaciones
     correlations = data.corr()
-
     # Guardar las correlaciones en un archivo CSV
     correlations.to_csv("output/correlations.csv")
     print("Correlation data saved as 'output/correlations.csv'")
-    pass
 
 
 def get_correlations(data):
@@ -33,7 +28,6 @@ def get_correlations(data):
 
     # Devolver el dataframe de correlaciones
     return correlations
-    pass
 
 
 def normalize_diabetes_data(data):
