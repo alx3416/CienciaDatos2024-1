@@ -25,8 +25,7 @@ def save_histograms(data):
 
 def save_correlation(data, var1, var2):
         # Verificar si la carpeta "output" existe, si no, crearla
-        if not os.path.exists("output"):
-            os.makedirs("output")
+        proc.check_output_folder("output/scatterplots")
 
         # Calcular la correlación entre las dos variables
         correlation_value = data[var1].corr(data[var2])
