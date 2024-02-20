@@ -26,7 +26,11 @@ def get_correlations(data):
 
 def normalize_diabetes_data(data):
     # formula ->  Z = (1/sqrt(n)) * ((x-mu)/std)
-    # apply to every column except Y
-    # compare with diabetes normalized data to check
-    # return Z
-    pass
+    mu_data = data.mean()
+    std_data = data.std()
+    normalized_data = data.sub(mu_data, axis='columns')
+    normalized_data = normalized_data.div(std_data, axis='columns')
+    val = (1 / mt.sqrt(442))
+    normalized_data = normalized_data.mul(val, axis='columns')
+    normalized_data["Y"] = data["Y"]
+    return normalized_data
