@@ -16,11 +16,6 @@ def save_histogram(data, column):
 
 
 def save_histograms(data):
-<<<<<<< Updated upstream
-    # Hacer check sobre carpeta output
-    # Deben guardarse los histogramas de todas las variables en imágenes separadas
-    # Cada imagen se debe nombrar acorde a la variable utilizada
-=======
     proc.check_output_folder("output/histograms")
     for column in data.columns:
         save_histogram(data, column)
@@ -68,5 +63,4 @@ def save_all_correlations(data, correlations):
         for j in range(i, correlations.shape[1]):
             if i != j:
                 save_correlation(data, correlations.columns[i], correlations.columns[j])
->>>>>>> Stashed changes
-    pass
+
