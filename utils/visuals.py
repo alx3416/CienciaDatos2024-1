@@ -5,13 +5,14 @@ import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
 import pandas as pd
+import os
 
 
 def save_histogram(data, column):
     proc.check_output_folder("output/histograms")
-    sns_plot = sns.histplot(data=data[column])
+    sns_plot = sns.histplot(data=data[column], kde=True)
     fig = sns_plot.get_figure()
-    fig.savefig("output/histograms/histogram_"+column+".png")
+    fig.savefig("output/histograms/histogram_" + column + ".png")
     plt.close()
 
 
@@ -49,7 +50,7 @@ def save_correlations(data, correlations):
     # save each plot
     pass
 
-
+  
 def save_all_correlations(data, correlations):
     #checar si la carpeta output existe, si no, crearla
     proc.check_output_folder("output/correlations")
