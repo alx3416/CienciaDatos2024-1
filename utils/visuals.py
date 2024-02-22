@@ -50,6 +50,18 @@ def save_correlations(data, correlations):
     # save each plot
     pass
 
-
+  
 def save_all_correlations(data, correlations):
-    pass
+    #checar si la carpeta output existe, si no, crearla
+    proc.check_output_folder("output/correlations")
+    #guardar todas las correlaciones en un solo archivo
+    correlations.to_csv("output/correlations/all_correlations.csv")
+    #crear el grafcio de correlaciones
+    fig = px.imshow(correlations)
+    #guardar todas las correlaciones en imágenes individuales png
+    #Es importante evitar cifras duplicadas, la correlación A vs B es la misma que la correlación B vs A
+    for i in range(correlations.shape[0]):
+        for j in range(i, correlations.shape[1]):
+            if i != j:
+                save_correlation(data, correlations.columns[i], correlations.columns[j])
+
