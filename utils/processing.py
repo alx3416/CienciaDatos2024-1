@@ -52,8 +52,8 @@ def split_data(data, split_percentage):
     return training_data, test_data
 
 
-def simple_linear_regression(input_train, output_train):
+def simple_linear_regression(input_train, output_train, cols):
     regr = linear_model.LinearRegression()
-    inputs = input_train.values.reshape(-1, 3)
+    inputs = input_train.values.reshape(-1, cols)
     regr.fit(inputs, output_train)
     return regr
