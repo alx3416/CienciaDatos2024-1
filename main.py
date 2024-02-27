@@ -10,5 +10,6 @@ visu.save_histogram(dataset, "AGE")
 visu.save_histograms(dataset)
 visu.save_correlation(dataset, "BMI", "S6")
 visu.save_all_correlations(dataset, dataset.corr())
+visu.save_all_correlations_one_image(dataset)
 
 norm_dataset = proc.normalize_diabetes_data(dataset)
