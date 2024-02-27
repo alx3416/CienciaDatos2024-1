@@ -16,4 +16,16 @@ training_data, test_data = proc.split_data(norm_dataset, 0.7)
 training_input = training_data[["BMI", 'AGE', 'S6']]
 training_output = training_data["Y"]
 model = proc.simple_linear_regression(training_input, training_output, 3)
-print("ok")
+
+test_input = training_data[["BMI", 'AGE', 'S6']]
+test_output = training_data["Y"]
+test_predictions = proc.test_predictions(model, test_input)
+
+coefficients = proc.get_coefficients(model)
+print("Coefficients: ", coefficients)
+MSE = proc.get_mean_squared_error(test_output,
+                                  test_predictions)
+print("Mean Squared Error: ", MSE)
+R2 = proc.get_coefficient_determination(test_output,
+                                        test_predictions)
+print("R² Score: ", R2)
