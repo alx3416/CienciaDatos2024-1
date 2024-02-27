@@ -45,9 +45,11 @@ def save_correlation(data, var1, var2):
     plt.close()
 
 
-def save_correlations(data, correlations):
-    # create each scatter plot for var1 and var2
-    # save each plot
+def save_all_correlations_one_image(data):
+    proc.check_output_folder("output")
+    fig = sns.pairplot(data, hue="SEX")
+    fig.savefig("output/All_histograms.png")
+    plt.close()
     pass
 
   
