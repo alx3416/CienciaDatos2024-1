@@ -13,13 +13,13 @@ visu.save_all_correlations(dataset, dataset.corr())
 
 norm_dataset = proc.normalize_diabetes_data(dataset)
 training_data, test_data = proc.split_data(norm_dataset, 0.7)
-training_input = training_data[["BMI", 'AGE', 'S6']]
+training_input = training_data[['AGE', 'SEX', 'BMI', 'BP', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6']]
 training_output = training_data["Y"]
-model = proc.simple_linear_regression(training_input, training_output, 3)
+model = proc.simple_linear_regression(training_input, training_output, 10)
 
-test_input = training_data[["BMI", 'AGE', 'S6']]
+test_input = training_data[['AGE', 'SEX', 'BMI', 'BP', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6']]
 test_output = training_data["Y"]
-test_predictions = proc.test_predictions(model, test_input)
+test_predictions = proc.test_predictions(model, test_input, 10)
 
 coefficients = proc.get_coefficients(model)
 print("Coefficients: ", coefficients)
