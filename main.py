@@ -32,7 +32,11 @@ R2 = proc.get_coefficient_determination(test_output,
 print("R² Score: ", R2)
 
 # Usemos columna SEX como variable categórica (logistic regression)
-
+training_data, test_data = proc.split_data(norm_dataset, 0.7)
+training_input = training_data[['AGE', 'BMI']]
+training_output = training_data["SEX"]
+test_input = test_data[['AGE', 'BMI']]
+test_output = test_data["SEX"]
 # salida debe ser categorical
 
 # crear y entrenar modelo
