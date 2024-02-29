@@ -6,6 +6,7 @@ import plotly.express as px
 import numpy as np
 import pandas as pd
 import os
+from sklearn import metrics
 
 
 def save_histogram(data, column):
@@ -67,3 +68,15 @@ def save_all_correlations(data, correlations):
             if i != j:
                 save_correlation(data, correlations.columns[i], correlations.columns[j])
 
+
+def save_confusion_matrix(confusion):
+    # checar folder de salida
+    # usar seaborn heatmap
+    # salvar figura como confusion_matrix.png
+    pass
+
+def save_roc_curve(diabetes_y_test, diabetes_y_pred):
+    # checar folder de salida
+    # generar curva ROC
+    # salvarla como curve_ROC.png
+    pass

@@ -30,3 +30,14 @@ print("Mean Squared Error: ", MSE)
 R2 = proc.get_coefficient_determination(test_output,
                                         test_predictions)
 print("R² Score: ", R2)
+
+# Usemos columna SEX como variable categórica (logistic regression)
+
+# salida debe ser categorical
+
+# crear y entrenar modelo
+
+# predicciones con conjunto test
+
+# Obtener matriz de confusión y medidas de calidad
+names = ['male', 'female']

@@ -2,7 +2,8 @@ import os
 import math as mt
 import pandas as pd
 from sklearn import linear_model
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import mean_squared_error, r2_score, confusion_matrix, classification_report
+from sklearn import preprocessing
 
 
 def check_output_folder(path):
@@ -74,3 +75,20 @@ def get_mean_squared_error(output_test, output_predicted):
 
 def get_coefficient_determination(output_test, output_predicted):
     return r2_score(output_test, output_predicted)
+
+
+def values_2_categorical(data):
+    # cambiar serie numerica a categorical
+    pass
+
+
+def logistic_regression(input_train, output_train):
+    # Crear modelo logistic regression y entrenarlo
+    pass
+
+
+def get_confusion_matrix(diabetes_y_test, diabetes_y_pred, target_names):
+    # crear matriz de confusión
+    # crear reporte de clasificación (resultados)
+    # imprimir en pantalla el reporte
+    pass
