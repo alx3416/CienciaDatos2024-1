@@ -92,3 +92,8 @@ def get_confusion_matrix(diabetes_y_test, diabetes_y_pred, target_names):
     # crear reporte de clasificación (resultados)
     # imprimir en pantalla el reporte
     pass
+
+
+def get_roc_curve(diabetes_y_test, diabetes_y_pred, target_names):
+    # crear curva ROC
+    pass
