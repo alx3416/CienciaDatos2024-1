@@ -78,17 +78,26 @@ def get_coefficient_determination(output_test, output_predicted):
 
 
 def values_2_categorical(data):
-    # cambiar serie numerica a categorical
-    pass
+    # https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html
+    # Encode target labels with value between 0 and n_classes-1.
+    lab = preprocessing.LabelEncoder()
+    return lab.fit_transform(data)
 
 
 def logistic_regression(input_train, output_train):
-    # Crear modelo logistic regression y entrenarlo
-    pass
+    # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+    model = linear_model.LogisticRegression()
+    model.fit(input_train, output_train)
+    return model
 
 
 def get_confusion_matrix(diabetes_y_test, diabetes_y_pred, target_names):
     # crear matriz de confusión
     # crear reporte de clasificación (resultados)
     # imprimir en pantalla el reporte
+    pass
+
+
+def get_roc_curve(diabetes_y_test, diabetes_y_pred, target_names):
+    # crear curva ROC
     pass
