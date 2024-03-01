@@ -83,8 +83,10 @@ def values_2_categorical(data):
 
 
 def logistic_regression(input_train, output_train):
-    # Crear modelo logistic regression y entrenarlo
-    pass
+    # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+    model = linear_model.LogisticRegression()
+    model.fit(input_train, output_train)
+    return model
 
 
 def get_confusion_matrix(diabetes_y_test, diabetes_y_pred, target_names):
