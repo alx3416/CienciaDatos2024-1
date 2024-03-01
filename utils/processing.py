@@ -78,8 +78,10 @@ def get_coefficient_determination(output_test, output_predicted):
 
 
 def values_2_categorical(data):
-    # cambiar serie numerica a categorical
-    pass
+    # https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html
+    # Encode target labels with value between 0 and n_classes-1.
+    lab = preprocessing.LabelEncoder()
+    return lab.fit_transform(data)
 
 
 def logistic_regression(input_train, output_train):
