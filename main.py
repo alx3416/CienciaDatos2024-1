@@ -46,8 +46,8 @@ test_output = proc.values_2_categorical(test_output)
 model = proc.logistic_regression(training_input,
                                       training_output)
 # predicciones con conjunto test
-
+test_predictions = model.predict(test_input)
 # Obtener matriz de confusión y medidas de calidad
 names = ['male', 'female']
 
-visu.save_confusion_matrix()
+visu.save_confusion_matrix(test_output, test_predictions)
