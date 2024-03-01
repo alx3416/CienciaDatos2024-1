@@ -40,8 +40,6 @@ test_output = test_data["SEX"]
 # salida debe ser categorical
 
 # crear y entrenar modelo
-model = proc.simple_linear_regression(training_input,
-                                      training_output)
 
 # predicciones con conjunto test
 
