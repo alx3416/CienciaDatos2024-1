@@ -37,7 +37,10 @@ training_input = training_data[['AGE', 'BMI']]
 training_output = training_data["SEX"]
 test_input = test_data[['AGE', 'BMI']]
 test_output = test_data["SEX"]
+
 # salida debe ser categorical
+training_output = proc.values_2_categorical(training_output)
+test_output = proc.values_2_categorical(test_output)
 
 # crear y entrenar modelo
 
