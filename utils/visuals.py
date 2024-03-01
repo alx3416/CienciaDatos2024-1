@@ -69,11 +69,13 @@ def save_all_correlations(data, correlations):
                 save_correlation(data, correlations.columns[i], correlations.columns[j])
 
 
-def save_confusion_matrix(confusion):
+def save_confusion_matrix():
     
     # checar folder de salida
     proc.check_output_folder("output/matrix")
     # usar seaborn heatmap
+    y_true = [0, 1, 0, 1, 1, 0]
+    y_pred = [0, 1, 0, 0, 1, 1]
     confusion = metrics.confusion_matrix(y_true, y_pred)
     plt.figure(figsize=(10,7))
     sns.heatmap(confusion, annot=True, fmt='d')
@@ -84,7 +86,6 @@ def save_confusion_matrix(confusion):
     plt.clf()
     plt.close()
     
-    pass
 
 def save_roc_curve(diabetes_y_test, diabetes_y_pred):
     # checar folder de salida

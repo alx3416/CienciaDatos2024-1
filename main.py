@@ -41,3 +41,5 @@ print("R² Score: ", R2)
 
 # Obtener matriz de confusión y medidas de calidad
 names = ['male', 'female']
+
+visu.save_confusion_matrix()
