@@ -43,7 +43,8 @@ training_output = proc.values_2_categorical(training_output)
 test_output = proc.values_2_categorical(test_output)
 
 # crear y entrenar modelo
-
+model = proc.logistic_regression(training_input,
+                                      training_output)
 # predicciones con conjunto test
 
 # Obtener matriz de confusión y medidas de calidad
