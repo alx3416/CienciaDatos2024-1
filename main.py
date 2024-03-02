@@ -49,5 +49,5 @@ test_predictions = model.predict(test_input)
 # Obtener matriz de confusión y medidas de calidad
 names = ['male', 'female']
 
-visu.save_confusion_matrix(test_output, test_predictions, targets)
+visu.save_confusion_matrix(test_output, test_predictions, names)
 visu.save_roc_curve(test_output, test_predictions)
