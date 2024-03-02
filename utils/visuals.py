@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import os
 from sklearn import metrics
+from sklearn.metrics import classification_report
 
 
 def save_histogram(data, column):
@@ -69,9 +70,10 @@ def save_all_correlations(data, correlations):
                 save_correlation(data, correlations.columns[i], correlations.columns[j])
 
 
-def save_confusion_matrix(y_true, y_pred):
+def save_confusion_matrix(y_true, y_pred, target_names):
     # checar folder de salida
     proc.check_output_folder("output/matrix")
+    print(classification_report(y_true, y_pred, target_names=target_names))
     confusion = metrics.confusion_matrix(y_true, y_pred)
     plt.figure(figsize=(10, 7))
     sns.heatmap(confusion, annot=True, fmt='d')
