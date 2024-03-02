@@ -85,6 +85,10 @@ def save_confusion_matrix(y_true, y_pred):
 
 def save_roc_curve(diabetes_y_test, diabetes_y_pred):
     # checar folder de salida
+    proc.check_output_folder("output")
     # generar curva ROC
+    new_fig = plt.figure()
+    metrics.RocCurveDisplay.from_predictions(diabetes_y_test, diabetes_y_pred)
     # salvarla como curve_ROC.png
-    pass
+    plt.savefig("output/curve_ROC.png")
+    plt.close(new_fig)
