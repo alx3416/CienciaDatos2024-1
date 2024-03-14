@@ -74,3 +74,7 @@ def get_mean_squared_error(output_test, output_predicted):
 
 def get_coefficient_determination(output_test, output_predicted):
     return r2_score(output_test, output_predicted)
+
+
+def suma_valores(a, b):
+    return a + b
