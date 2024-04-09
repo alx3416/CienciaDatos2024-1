@@ -6,6 +6,7 @@ import plotly.express as px
 import numpy as np
 import pandas as pd
 import os
+from sklearn.tree import plot_tree
 
 
 def save_histogram(data, column):
@@ -52,18 +53,25 @@ def save_all_correlations_one_image(data):
     plt.close()
     pass
 
-  
+
 def save_all_correlations(data, correlations):
-    #checar si la carpeta output existe, si no, crearla
+    # checar si la carpeta output existe, si no, crearla
     proc.check_output_folder("output/correlations")
-    #guardar todas las correlaciones en un solo archivo
+    # guardar todas las correlaciones en un solo archivo
     correlations.to_csv("output/correlations/all_correlations.csv")
-    #crear el grafcio de correlaciones
+    # crear el grafcio de correlaciones
     fig = px.imshow(correlations)
-    #guardar todas las correlaciones en imágenes individuales png
-    #Es importante evitar cifras duplicadas, la correlación A vs B es la misma que la correlación B vs A
+    # guardar todas las correlaciones en imágenes individuales png
+    # Es importante evitar cifras duplicadas, la correlación A vs B es la misma que la correlación B vs A
     for i in range(correlations.shape[0]):
         for j in range(i, correlations.shape[1]):
             if i != j:
                 save_correlation(data, correlations.columns[i], correlations.columns[j])
 
+
+def plot_model_tree(regressionTree, columnsNames):
+    plt.figure(figsize=(20, 16), dpi=300)
+    plt.title('Decission Tree')
+    plot_tree(regressionTree, feature_names=columnsNames)
+    plt.show()
+    plt.close()

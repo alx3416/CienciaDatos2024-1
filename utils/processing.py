@@ -3,6 +3,7 @@ import math as mt
 import pandas as pd
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
+from sklearn import tree
 
 
 def check_output_folder(path):
@@ -58,6 +59,18 @@ def simple_linear_regression(input_train, output_train, cols):
     inputs = input_train.values.reshape(-1, cols)
     regr.fit(inputs, output_train)
     return regr
+
+
+def regression_tree(input_train, output_train, cols):
+    regr = tree.DecisionTreeRegressor()
+    inputs = input_train.values.reshape(-1, cols)
+    regr.fit(inputs, output_train)
+    return regr
+
+
+def show_tree(model_tree):
+    return tree.plot_tree(model_tree)
+
 
 def test_predictions(model, input_test, columns):
     output_test = model.predict(input_test.values.reshape(-1, columns))
