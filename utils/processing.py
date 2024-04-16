@@ -3,6 +3,7 @@ import math as mt
 import pandas as pd
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.svm import SVR
 
 
 def check_output_folder(path):
@@ -58,6 +59,14 @@ def simple_linear_regression(input_train, output_train, cols):
     inputs = input_train.values.reshape(-1, cols)
     regr.fit(inputs, output_train)
     return regr
+
+
+def SVR_polynomial(input_train, output_train, cols):
+    svr_poly = SVR(kernel="poly", degree=cols+1, C=10000)
+    inputs = input_train.values.reshape(-1, cols)
+    svr_poly.fit(inputs, output_train)
+    return svr_poly
+
 
 def test_predictions(model, input_test, columns):
     output_test = model.predict(input_test.values.reshape(-1, columns))
