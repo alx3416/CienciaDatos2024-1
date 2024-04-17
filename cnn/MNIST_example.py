@@ -40,7 +40,7 @@ model = keras.Sequential(
 model.summary()
 
 batch_size = 16
-epochs = 3
+epochs = 1
 
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
@@ -50,4 +50,4 @@ score = model.evaluate(x_test, y_test, verbose=0)
 print("Test loss:", score[0])
 print("Test accuracy:", score[1])
 
-model.save('output/model.keras')
+model.save('model.keras')

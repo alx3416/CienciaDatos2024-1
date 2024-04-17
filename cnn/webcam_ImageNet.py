@@ -10,7 +10,7 @@ import keras
 from keras.applications.xception import Xception
 from keras.applications.xception import preprocess_input, decode_predictions
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 ret, frame = cap.read()
 img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
