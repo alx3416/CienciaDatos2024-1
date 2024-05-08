@@ -8,11 +8,22 @@ import pandas as pd
 
 
 def save_histogram(data, column):
+<<<<<<< Updated upstream
     proc.check_output_folder("output/histograms")
     sns_plot = sns.histplot(data=data[column])
     fig = sns_plot.get_figure()
     fig.savefig("output/histograms/histogram_"+column+".png")
     plt.close()
+=======
+    # Si no existe carpeta output una rutina debe checar si existe
+    # y crearla de ser necesario
+    # Debe generarse un histograma con seaborn o matplotlib y guardarse como imagen PNG
+    # El nombre del archivo debe ser la variable/columna utilizada
+    sns_plot = sns.histplot(data=data[column])
+    fig = sns_plot.get_figure()
+    fig.savefig("output.png")
+
+>>>>>>> Stashed changes
 
 
 def save_histograms(data):

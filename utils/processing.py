@@ -3,7 +3,7 @@ import math as mt
 import pandas as pd
 
 
-def check_output_folder(path):
+def check_output_folder(path: object) -> object:
     if os.path.isdir(path):
         pass
     else:
