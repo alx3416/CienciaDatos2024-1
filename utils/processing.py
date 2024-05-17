@@ -44,6 +44,17 @@ def normalize_diabetes_data(data):
     return normalized_data
 
 
+def normalize_gen_data(data):
+    # formula ->  Z = (1/sqrt(n)) * ((x-mu)/std)
+    mu_data = data.mean()
+    std_data = data.std()
+    normalized_data = data.sub(mu_data, axis='columns')
+    normalized_data = normalized_data.div(std_data, axis='columns')
+    val = (1 / mt.sqrt(data.shape[0]))
+    normalized_data = normalized_data.mul(val, axis='columns')
+    return normalized_data
+
+
 def split_data(data, split_percentage):
     training_data = data.sample(frac=split_percentage)
     idx_orig = data.index
@@ -58,6 +69,7 @@ def simple_linear_regression(input_train, output_train, cols):
     inputs = input_train.values.reshape(-1, cols)
     regr.fit(inputs, output_train)
     return regr
+
 
 def test_predictions(model, input_test, columns):
     output_test = model.predict(input_test.values.reshape(-1, columns))
